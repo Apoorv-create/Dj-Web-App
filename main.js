@@ -15,7 +15,7 @@ leftWristY = 0;
 
 
 function setup(){
-   canvas = CreateCanvas(600, 500);
+   canvas = createCanvas(500, 300);
    canvas.center();
 
    video = createCapture(VIDEO);
@@ -73,7 +73,7 @@ function draw() {
     }
 }
 
-function gotPoses(){
+function gotPoses(results){
     if(results.length > 0){
         scoreRightwrist = results[0].pose.keypoints[10].score;
         scoreLeftwrist = results[0].pose.keypoints[9].score;
@@ -83,7 +83,7 @@ function gotPoses(){
         rightWristY = results[0].pose.rightWrist.y;
         console.log("rightWristX = " + rightWristX + " " + "rightWristY" + rightWristY);
 
-        leftWristX = results[0].pose.leftWristX.x;
+        leftWristX = results[0].pose.leftWrist.x;
         leftWristY = results[0].pose.leftWrist.y;
         console.log("leftWristX = " + leftWristX + " " + "leftWristY = " + leftWristY);
     }
